@@ -21,9 +21,17 @@
         @foreach($projects as $project)
         <div class="text-Div text-font">
             
-            <div class="text one"> 
-            {{$project->description}}
-            </div>
+        <span class="beforeContext">{!! htmlspecialchars_decode(Str::limit($project->description, 300)) !!} </span>
+
+            @if(strlen($project->description) > 300)
+
+            <span class="read-more-show hide_content">More<i class="fa fa-angle-down"></i></span>
+            <span class="read-more-content" >
+            {!! htmlspecialchars_decode($project->description) !!} 
+            <span class="read-more-hide hide_content">Less <i class="fa fa-angle-up"></i></span> </span>
+            @else
+            {!! htmlspecialchars_decode($project->description) !!} 
+            @endif
             
 
         </div>
@@ -35,6 +43,7 @@
      </div>
 
      <div class="col-sm-6">
+     <div class="sticky-top">
        @foreach($projects as $project)
          <div class="fund"><span>Funding</span></div>
          <div class="percentageDiv"><div class="percentage btn-primary">{{($donors->sum('amount') * 100)/($project->target_fund)}}%</div></div>
@@ -115,6 +124,7 @@
      </div>
    
    </div>
+   </div>
 
 </div>
 <div class="container">
@@ -155,7 +165,7 @@
                     @foreach($projects as $project)
                         <div id="project" class="tab-pane fade in active">
                             <h3> {{ $project->name}}</h3>
-                            <p> {{ $project->description}}</p>
+                            <p></p>
                         </div>
                     @endforeach
                     <div id="record" class="tab-pane fade">
@@ -198,7 +208,7 @@
                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" style="font-size:1rem">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h4 class="modal-title" id="exampleModalLabel">Help by sharing</h4>
+                                    <h4 class="modal-title" id="exampleModalLabel">please help</h4>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
@@ -206,9 +216,10 @@
                                     <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://donation.muhahe.com/" class="btn btn-outline-primary mr-2"><i class="fa fa-linkedin"></i>   linkedin</a>
                                     <a href="whatsapp://send?text=http://donation.muhahe.com/" class="btn btn-outline-primary mr-2"><i class="fa fa-whatsapp"></i>   Whatsapp</a>
                                     <a href="http://twitter.com/share?text=text goes here&url=http://donation.muhahe.com/" class="btn btn-outline-primary mr-2"><i class="fa fa-twitter"></i>  Twitter</a>
+                                    <a href="" class="btn btn-outline-primary">shareicn</a>
                                 </div>
                                 <div class="modal-footer">
-                                Fundraisers and donors shared on social networks raise up to 5x moreThank you for your share
+sharing this page with your friends, families, church members, classmates, workmate, neighbors Thank you for your support  by share
                                 </div>
                             </div>
                         </div>

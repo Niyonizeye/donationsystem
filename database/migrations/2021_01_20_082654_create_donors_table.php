@@ -18,7 +18,7 @@ class CreateDonorsTable extends Migration
             $table->string('identity');
             $table->string('name');
             $table->string('email');
-            $table->string('phoneNumber');
+            $table->string('country');
             $table->string('currency');
             $table->string('amount');
             $table->timestamps();

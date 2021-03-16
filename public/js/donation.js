@@ -22,33 +22,43 @@ var x = setInterval(function() {
   }
 }, 1000);
 
+
+
 // read more script 
 
+// let lengthText = document.querySelector("#description");
+
+// if(lengthtext.length>100){
+//     lengthText.style="color:red";
+// // }
 $(function () {
-    function trimText(selector, limit) {    
-        var text = selector.text(),
-            trim;
+    $('.read-more-content').addClass('hide_content')
+$('.read-more-show, .read-more-hide').removeClass('hide_content')
 
-        selector.each(function() {
-            if ($(this).text().length > limit) {
-                trim = $(this).text().substr(0, limit);
+// Set up the toggle effect:
+$('.read-more-show').on('click', function(e) {
+  $(this).next('.read-more-content').removeClass('hide_content');
+  $(this).addClass('hide_content');
+  e.preventDefault();
+});
 
-                $(this).text(trim);
-                $(this).append('<span class="expand">Read More<i class="fas fa-plus-circle">');
-            };
-        });
-
-        $(selector).on("click",".expand", function() { //future element
-            $(this).parent().text(text).append('<span class="collapse">Read Less<i class="fas fa-chevron-circle-up">');
-        });
-
-        $(selector).on("click", ".collapse",function() { //future element
-            $(this).parent().text(trim).append('<span class="expand">Read More<i class="fas fa-plus-circle">');
-        });
-
-    };
-
-
-    trimText($(".one"),   300);
-
+// Changes contributed by @diego-rzg
+$('.read-more-hide').on('click', function(e) {
+  var p = $(this).parent('.read-more-content');
+  p.addClass('hide_content');
+  p.prev('.read-more-show').removeClass('hide_content'); // Hide only the preceding "Read More"
+  e.preventDefault();
+});
 })
+
+
+// $(document).ready(function() { 
+//     $("button").click(function() { 
+//         // reduce the whitespace from both sides of a string.  
+//         var geeks1 = selector.text(),; 
+//         //split a string into an array of substrings 
+//         var geek = geeks1.split(" ") 
+//             // count number of elements 
+//         alert(geek.length); 
+//     }); 
+// }); 

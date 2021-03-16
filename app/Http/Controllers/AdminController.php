@@ -33,11 +33,11 @@ class AdminController extends Controller
             $project->img_src=$re_image;
             $project->name = $data['name'];
             $project->leader = $data['leader'];
-            $project->description=$data['description'];
+            $project->description=htmlspecialchars($data['description']) ;
             $project->target_fund=$data['target_fund'];
             $project->save(); 
             session()->flash('success','Donoproject created successfully');    
-            return redirect('/admin/add')->with('message', 'Project Created Successfull!');    
+            return redirect('/admin/projects')->with('message', 'Project Created Successfull!');    
           
        }  
     }

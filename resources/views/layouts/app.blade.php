@@ -10,7 +10,6 @@
     <title>{{ config('app.name', 'Donation') }}</title>
 
     <!-- Scripts -->
-  
     <script src="{{ asset('js/app.js') }}" defer></script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -19,8 +18,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
-    <link rel="icon" href="{{asset('img/log1.png')}}">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet"> 
+    <link rel="icon" href="{{asset('image/icon.jpg')}}">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+ 
 </head>
 <body>
     <div id="app">
@@ -108,7 +109,10 @@
 
       <!-- Js Plugins -->
     
-
+      <script>
+$('.amount-selected').on("keyUp", function() { alert('');
+    //my input text has changed
+});</script>
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>

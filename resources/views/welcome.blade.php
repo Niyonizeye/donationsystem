@@ -4,8 +4,8 @@
 @section('content')
 <!-- Modal -->
 <div class="container-fluid containerUp" style="padding:0;margin:0">
-    <div>
-        <img src="/image/banner4.jpg" class="imageBanner img-fluid" alt="" srcset="">
+    <div class="img">
+        <img src="/image/muhahebanner33.jpg" class="imageBanner img-fluid" alt="" srcset="">
         <a href="/donor" class="rounded btn-primary donateLink">Donate</a>
     </div>
 </div>
@@ -62,7 +62,7 @@
 </div>
 <div class="container my-2"> 
    <div class="row">
-       <div class="col-sm-6 imageDiv"><img src="/image/firstimage.jpg" class="img-fluid" alt="" srcset=""></div>
+       <div class="col-sm-6 img"><img src="/image/slide2.jpg" class="img-thumbnail" alt="" srcset=""></div>
        <div class="col-sm-6">
            <span class="heading">Who We are?? organisation you can trust</span>
             <div class="mainParagraph">
@@ -108,17 +108,72 @@
 <div class="container projects my-4">
      <div class="row">
      <div class="col-sm-6">
+        <div class="sticky-top">
             <div class="container my-4 projectDiv">
               @foreach($projects as $project)
                <div class="row">
-                    <div class="col-sm-6 my-4 imagediv"> <img src="{{asset('img/'.$project->img_src)}}" alt="{{$project->img_alt}}" srcset="" class="img-thumbnail projectImage"></div>
-                    <div class="col-sm-6">
-                            <div class="funding"><span>Funding</span></div>
-                        <div class="heading"><h4>{{$project->name}}</h4></div>
+                   <div class="heading"><h4>{{$project->name}}</h4></div>
+                    <div class="funding"><span>Funding</span></div>
+                    <img src="{{asset('img/'.$project->img_src)}}"  alt="{{$project->img_alt}}" class="slideImage" alt="...">
+                    <div class="">
+                        <div class="contentTextProject">   
+                            <div class="comment more">
+                            <span class="beforeContext">{!! htmlspecialchars_decode(Str::limit($project->description, 300)) !!} </span>
+
+                                @if(strlen($project->description) > 300)
+
+                                <span class="read-more-show hide_content">More<i class="fa fa-angle-down"></i></span>
+                                <span class="read-more-content" >
+                                {!! htmlspecialchars_decode($project->description) !!} 
+                                <span class="read-more-hide hide_content">Less <i class="fa fa-angle-up"></i></span> </span>
+                                @else
+                                {!! htmlspecialchars_decode($project->description) !!} 
+                                @endif
+                            </div>                      
+                         </div>
+                    </div>
+                    
+                    <div class="text-donation rounded">Crypto-donation Total <span class="float-right result-text">${{ $donors->sum('amount')}}</span></div>
+                    </div>
+                    <div class="conatiner-fluid DonationDown">
+                        <div class="row donationDiv1">
+                            <div class="col-sm-4 text-center"><div><span class="result">456</span></div><div>Donations</div></div>
+                            <div class="col-sm-4 text-center"><div><span class="result">456</span></div><div>End beneficiaries</div></div>
+                            <div class="col-sm-4 text-center">
+                            <div class="text-center"><a href="/donor" class="btn btn-primary rounded"> Donate</a></div>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+                @endforeach
+                </div>
+            </div>
+            <!-- end -->
+          <div class="col-sm-6">
+          <div class="sticky-top">
+          <div class="container my-4 projectDiv">
+              @foreach($projects as $project)
+               <div class="row">
+                   <div class="heading"><h4>{{$project->name}}</h4></div>
+                    <div class="funding"><span>Funding</span></div>
+                    <img src="/image/secondimage.jpg" class="slideImage" alt="...">
+                    <div class="">
                         <div class="contentTextProject">
-                            <div class="text one"> 
-                                {{$project->description}}
-                            </div>                            
+                            <div class="comment more">
+
+                                <span class="beforeContext">{!! htmlspecialchars_decode(Str::limit($project->description, 300)) !!} </span>
+
+                                @if(strlen($project->description) > 300)
+
+                                <span class="read-more-show hide_content">More<i class="fa fa-angle-down"></i></span>
+                                <span class="read-more-content" >
+                                {!! htmlspecialchars_decode($project->description) !!} 
+                                <span class="read-more-hide hide_content">Less <i class="fa fa-angle-up"></i></span> </span>
+                                @else
+                                {!! htmlspecialchars_decode($project->description) !!} 
+                                @endif
+                                
+                            </div>                          
                         </div>
                     </div>
                     
@@ -137,36 +192,6 @@
                 @endforeach
                 
             </div>
-            <!-- end -->
-          <div class="col-sm-6">
-          <div class="container my-4 projectDiv">
-              @foreach($projects as $project)
-               <div class="row">
-                    <div class="col-sm-6 my-4 imagediv"> <img src="{{asset('img/'.$project->img_src)}}" alt="{{$project->img_alt}}" srcset="" class="img-thumbnail projectImage"></div>
-                    <div class="col-sm-6">
-                            <div class="funding"><span>Funding</span></div>
-                        <div class="heading"><h4>{{$project->name}}</h4></div>
-                        <div class="contentTextProject">
-                            <div class="text one"> 
-                                {{$project->description}}
-                            </div>                            
-                        </div>
-                    </div>
-                    
-                    <div class="text-donation rounded">Crypto-donation Total <span class="float-right result-text">${{ $donors->sum('amount')}}</span></div>
-                    </div>
-                    <div class="conatiner-fluid DonationDown">
-                        <div class="row donationDiv1">
-                            <div class="col-sm-4 text-center"><div><span class="result">456</span></div><div>Donations</div></div>
-                            <div class="col-sm-4 text-center"><div><span class="result">456</span></div><div>End beneficiaries</div></div>
-                            <div class="col-sm-4 text-center">
-                            <div class="text-center"><a href="/donor" class="btn btn-primary rounded"> Donate</a></div>
-                            </div>
-                        </div> 
-                    </div>
-                </div>
-                @endforeach
-            </div>
           </div>
           <!-- end -->
      </div>
@@ -175,14 +200,13 @@
 <div class="container my-4">
    <div class="row"> 
        <div class="col-sm-4">
-           <div class="titlePart"><h1>Heading Title</h1></div>
+           <div class="titlePart"><h1>Save the Life</h1></div>
            <div class="contentPart my-2">
-           Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime dignissimos omnis velit
-           itaque voluptas aperiam nam. Natus esse voluptate, rem est fugit, quam minima repellendus,
-           mollitia sed deleniti possimus et molestias laboriosam praesentium quasi eligendi 
-           alias labore voluptatum nihil nobis suscipit amet. Maiores fugiat iusto omnis voluptatem deserunt, obcaecati quo.
+           Help People for their needs all over the world on this planet! If opportunity doesn&#39;t knock, let build a
+door together. We have two beliefs: the future can be better than the presents and I have the power to
+make it so
            </div>
-           <button class="btn btn-primary rounded float-left donateWidth">Buy Now</button>
+           <button class="btn btn-primary rounded float-left donateWidth">Donate</button>
        </div>
        <div class="col-sm-8 videoDiv"> 
        <video src="/video/movie.ogg" controls></video>
@@ -191,7 +215,7 @@
 
 </div>
 
-<div class="container bg-warning rounded getinvolvedDiv">
+<div class="container bg-primary rounded getinvolvedDiv">
 
       <div class="row">
            <div class="col-sm-6"> 
@@ -205,7 +229,7 @@
                   </div>
             </div>
            <div class="col-sm-6">
-               <button class="getTouch bg-warning">Get in touch</button>
+               <button class="getTouch">Get in touch</button>
            </div>
       </div>
 
@@ -218,13 +242,13 @@
            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                    <img src="/image/image3.jpg" class="slideImage" alt="...">
+                    <img src="/image/slide1.jpg" class="slideImage" alt="...">
                     </div>
                     <div class="carousel-item">
-                    <img src="" class="slideImage" alt="...">
+                    <img src="/image/secondimage.jpg" class="slideImage" alt="...">
                     </div>
                     <div class="carousel-item">
-                    <img src="/image/image2.png" class="slideImage" alt="...">
+                    <img src="/image/slide2.jpg" class="slideImage" alt="...">
                     </div>
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
@@ -240,8 +264,13 @@
            </div>
            <div class="col-sm-6">
            <div class="my-2"><h2>Donate Today</h2> </div>
-              <div class="text-center">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum eum autem non vel cupiditate ratione accusamus cum libero laudantium adipisci placeat dicta omnis, mollitia optio blanditiis officia tenetur, ex pariatur! Doloribus dicta libero eius iste qui itaque voluptates, accusamus ullam facere quam, odit earum assumenda reprehenderit odio vero vel minus.
+              <div>
+              changing lives,Taking action.For every £1 you donate could change a life.
+              
+              
+              Thankfully, we all have the power to do something and make a difference. 
+              <p>Here at Muhahe donations, we're empowering a person for individuals, group ,organizations, and communities to step up in the face of the COVID-19 outbreak and help those who need it most.</p>
+              <h5>Rwandan startup Muhahe multi functions an e-commerce platform</h5>
               </div>
               <div class="my-4"> <a href="/donor" class="btn btn-primary rounded float-left donateWidth">Donate</a></div>
            </div>

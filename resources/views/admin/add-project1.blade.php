@@ -6,9 +6,15 @@
   <title>Donation| Project Add</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 
+  <link rel="stylesheet" href="{{asset('blog/bootstrap/css/bootstrap.min.css')}}">
+  <link rel="stylesheet" href="{{asset('blog/font-awesome/css/font-awesome.min.css')}}">
+  <script type="text/javascript" src="{{asset('blog/js/jquery-1.10.2.min.js')}}"></script>
+  <script type="text/javascript" src="{{asset('blog/bootstrap/js/bootstrap.min.js')}}"></script> -->
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- overlayScrollbars -->
@@ -99,7 +105,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="/admin/projects" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Projects</p>
                 </a>
@@ -108,18 +114,6 @@
                 <a href="/admin/add" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Project Add</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Project Edit</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Project Detail</p>
                 </a>
               </li>
             </ul>
@@ -185,7 +179,7 @@
               </div>
               <div class="form-group">
                 <label for="inputDescription">Project Description</label>
-                <textarea id="inputDescription" name="description" required class="form-control" rows="4"></textarea>
+                <textarea id="editor" cols="30" name="description" rows="10">Submit your text post here...</textarea>
               </div>
               <div class="form-group">
                 <label for="inputProjectLeader">Project Leader</label>
@@ -225,6 +219,7 @@
           <!-- /.card -->
         </div>
       </div>
+
       <div class="row">
         <div class="col-12">
           <a href="#" class="btn btn-secondary">Cancel</a>
@@ -265,5 +260,16 @@
 <script src="../../dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../../dist/js/demo.js"></script>
+<!-- you need to include the shieldui css and js assets in order for the charts to work -->
+<link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/light/all.min.css" />
+<script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
+
+<script>
+    $(function () {
+        $("#editor").shieldEditor({
+            height: 260
+        });
+    })
+</script>
 </body>
 </html>

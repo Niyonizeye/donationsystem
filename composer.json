@@ -16,6 +16,8 @@
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.2",
         "nesbot/carbon": "^2.44",
+        "obydul/laraskrill": "^1.1",
+        "paypal/rest-api-sdk-php": "*",
         "srmklive/paypal": "^3.0"
     },  
     "require-dev": {

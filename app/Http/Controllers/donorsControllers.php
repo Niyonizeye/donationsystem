@@ -58,8 +58,7 @@ class donorsControllers extends Controller
     { 
        $this->validate(request(),[
             'name' => 'required',
-            'email' => 'required',
-            'phoneNumber'=>'required'
+            'email' => 'required'
         ]);
 
         // dd($request->post())
@@ -69,10 +68,10 @@ class donorsControllers extends Controller
         $donor->identity = $data['identity'];
         $donor->name = $data['name'];
         $donor->email = $data['email'];
-        $donor->phoneNumber = $data['phoneNumber'];
+        $donor->country = $data['country'];
         $donor->currency = $data['currency'];
         $donor->amount = $data['amount'];
-        $donor->save();
+        $donor->save();        
         session()->flash('success','Donor created successfully');
         return redirect('/donor');
     }

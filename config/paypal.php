@@ -20,6 +20,17 @@ return [
         'certificate' => env('PAYPAL_LIVE_API_CERTIFICATE', ''),
         'app_id'      => '', // Used for Adaptive Payments API
     ],
+    [ 
+        'client_id' => 'Enter Your Client ID',
+        'secret' => 'Enter Your Secret Key',
+        'settings' => array(
+            'mode' => 'sandbox',
+            'http.ConnectionTimeOut' => 1000,
+            'log.LogEnabled' => true,
+            'log.FileName' => storage_path() . '/logs/paypal.log',
+            'log.LogLevel' => 'FINE'
+        ),
+    ],
 
     'payment_action' => 'Sale', // Can only be 'Sale', 'Authorization' or 'Order'
     'currency'       => env('PAYPAL_CURRENCY', 'USD'),
